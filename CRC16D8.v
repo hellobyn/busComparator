@@ -21,16 +21,17 @@
 `timescale 1 ps/ 1 ps
 	
 module CRC16D8(
-	input	[7:0] data,
+	input	[7:0] dataIn,
 	input	crcEn,
 	input	rst,
 	input	clk,
 	output [15:0] crcOut);
 
+	reg [7:0] data;
 	reg [15:0] crcReg;
 	wire[15:0] nextCRC;
 
-	assign crcOut = crcReg;
+	assign crcOut = nextCRC;
 
 	always @(posedge clk, posedge rst) begin
 		if(rst) begin
@@ -38,6 +39,7 @@ module CRC16D8(
 		end
 		else begin
 			crcReg <= crcEn ? nextCRC : crcReg;
+			data <= dataIn;
 		end
 	end 
 

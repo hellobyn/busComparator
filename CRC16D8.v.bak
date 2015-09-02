@@ -1,25 +1,33 @@
-//-----------------------------------------------------------------------------
-// Copyright (C) 2009 OutputLogic.com 
-// This source file may be used and distributed without restriction 
-// provided that this copyright statement is not removed from the file 
-// and that any derivative work contains the original copyright notice 
-// and the associated disclaimer. 
-// 
-// THIS SOURCE FILE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS 
-// OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED	
-// WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE. 
-//-----------------------------------------------------------------------------
+/*****************************************************************************************
+** 
+**                               		北京交通大学                                     
+**
+**----------------------------------------------------------------------------------------
+** 	文件名：			CRC16D8.v
+** 	创建时间：		2015-8-21 10:00
+** 	创建人员： 		赵秉贤
+** 	文件描述：  		CRC16校验算法文件
+** 
+**----------------------------------------------------------------------------------------
+** 	最后修改时间：	2015-8-24 10:00 
+** 	最后修改人员：	赵秉贤
+** 	版本号：	   	V1.0
+** 	版本描述：		基于CRC16-CCITT-X25标准 （另需 翻转 + 取反 + 调换字节） 
+**
+*****************************************************************************************/ 
+//----------------------------------------------------------------------------------------
 // CRC module for data[7:0] ,   crc[15:0]=1+x^5+x^12+x^16;
-//-----------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------
 `timescale 1 ps/ 1 ps
 	
 module CRC16D8(
-	input	[7:0] data,
+	input	[7:0] dataIn,
 	input	crcEn,
 	input	rst,
 	input	clk,
 	output [15:0] crcOut);
 
+	reg [7:0] data;
 	reg [15:0] crcReg;
 	wire[15:0] nextCRC;
 
@@ -27,10 +35,11 @@ module CRC16D8(
 
 	always @(posedge clk, posedge rst) begin
 		if(rst) begin
-      crcReg <= {16{1'b1}};
+			crcReg <= {16{1'b1}};
 		end
 		else begin
 			crcReg <= crcEn ? nextCRC : crcReg;
+			data <= dataIn;
 		end
 	end 
 
