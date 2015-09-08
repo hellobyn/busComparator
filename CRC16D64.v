@@ -21,13 +21,13 @@
 module CRC16D64
 (
 	input clk,
-	input rst1,
-//	input rst2,
+	input rst,
 	input [63:0] dataIn,
 	input [15:0] crcOut,
 	output reg crcRst,
 	output reg crcEn,
-	output reg [7:0] dataCache
+	output reg [1:0] crcStatus,	//1: 等待为1，完成为0 //0: 正确为0，错误置1
+	output reg [7:0] dataCaches
 );
 
 	reg [2:0] state;
@@ -39,13 +39,14 @@ module CRC16D64
 	
 	always @(negedge clk)
 	begin	
-		if(rst1)
+		if(rst)
 		begin
 			crcRst <= 1;
 			crcEn <= 0;
 			state <= IDLE;
 			byte <= BYTE8;
 			dataCache <= 8'hx;
+			crcStatus <= 2'b1x;
 		end
 		else
 		begin
@@ -131,11 +132,11 @@ module CRC16D64
 				end
 				TRUE:
 				begin
-					//输出结果，等待另一个CRC结束标志，使能比较器，失能rst1;
+					crcStatus <= 2'b00;
 				end
 				FALSE:
 				begin
-					//输出错误信息，出口待确定
+					crcStatus <= 2'b01;
 				end
 				default:
 				begin
