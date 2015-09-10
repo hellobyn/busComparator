@@ -27,27 +27,24 @@ module compCtrl
 	input dataIn1,
 	input dataIn2,
 	input [1:0] crcStatus1,
-	input [1:0] compStatus1,
-	input [1:0] outputStatus1,
 	input [1:0] crcStatus2,
-	input [1:0] compStatus2,
-	input [1:0] outputStatus2,
-	output reg crcStart1,
-	output reg crcStart2,
-	output reg compStart,
-	output reg outputStart1,
-	output reg outputStart2
+	input [1:0] compStatus,
+	input [1:0] outputStatus,
+	output reg crcEn1,
+	output reg crcEn2,
+	output reg compEn,
+	output reg outputEn,
+	output reg [7:0] modStatus;
+	output reg [63:0] data1,
+	output reg [63:0] data2
 )
 
-	reg [15:0] modStatus;
 	reg dataReady1;
 	reg dataReady2;
 	wire dataReady;
 	reg [2:0] state;
-	reg [63:0] data1;
-	reg [63:0] data2;
 	
-	parameter IDLE = 0, CRCING = 1, COMPING = 2, OUTPUTING = 3;
+	parameter IDLE = 0, CRCING = 1, COMPING = 2, OUTPUTING = 3, FEEDBACK = 4;
 	
 	assign dataReady = (!dataReady1) & (!dataReady2);
 	
@@ -76,77 +73,102 @@ module compCtrl
 				begin
 					if(dataReady)
 					begin
-						crcStart1 <= 1;
-						compStart1 <= 1; //失能
-						crcStart2 <= 1;
-						compStart2 <= 1; //失能
+						crcEn1 <= 1;
+						crcEn2 <= 1;
+						compEn <= 1; //失能
+						outputEn <= 1;
+						data1 <= 64'hx;
+						data2 <= 64'hx;
 					end
 					else
 					begin
-						crcStart1 <= 0; //使能
-						crcStart2 <= 0; //使能
+						crcEn1 <= 0; //使能
+						crcEn2 <= 0; //使能
 						data1 <= dataIn1;
 						data2 <= dataIn2;
+						dataReady1 <= 1;
+						dataReady2 <= 1;
 						//modStatus <= ;
 						state <= CRCING;
 					end
 				end
 				CRCING:
 				begin					
-					if(crcStart1);
+					if(crcEn1);
 					else if(crcStatus1[1]) 
-						modStatus[15] <= 1;
-					else
-					begin
-						modStatus{15:14} <= crcStatus1;
-						crcStart1 <= 1;
-					end
-					
-					if(crcStart2);
-					else if(crcStatus2[1])
 						modStatus[7] <= 1;
 					else
 					begin
-						modStatus{7:6} <= crcStatus2;
-						crcStart2 <= 1;						
+						modStatus{7:6} <= crcStatus1;
+						crcEn1 <= 1;
+					end
+					
+					if(crcEn2);
+					else if(crcStatus2[1])
+						modStatus[5] <= 1;
+					else
+					begin
+						modStatus{5:4} <= crcStatus2;
+						crcEn2 <= 1;						
 					end
 					
 					
-					if(modStatus[15] || modStatus[7]);
-					else if(modStatus[14] || modStatus[6])
+					if(modStatus[7] || modStatus[5]);
+					else if(modStatus[6] || modStatus[4])
 					begin
-						state <= CRCFAIL;
+						outputEn <= 0;
+						state <= OUTPUTING;
 					end
 					else
 					begin
-						compStart <= 0; //使能		
+						compEn <= 0; //使能		
 						state <= COMPING;
 					end
 				end
 				COMPING:
 				begin
 					if(compStatus[1]) 
-						modStatus[13] <= 1;
-					else if(compStatus[0])
-					begin
-						modStatus{13:12} <= compStatus;
-						compStart <= 1;
-						state <= COMPFAIL;
-					end
+						modStatus[3] <= 1;
+//					else if(compStatus[0])
+//					begin
+//						modStatus{13:12} <= compStatus;
+//						compEn <= 1;
+//						state <= OUTPUTING;
+//					end
 					else
 					begin
-						modStatus{13:12} <= compStatus;
-						compStart <= 1;
+						modStatus{3:2} <= compStatus;
+						compEn <= 1;
+						outputEn <= 0;
 						state <= OUTPUTING;
 					end
 				end
 				OUTPUTING:
 				begin
+					if(outputStatus[1])
+					begin
+						modStatus[1] <= 1;
+					end
+					else
+					begin
+						outputEn <= 1;
+						modStatus{1:0} <= outputStatus;
+						state <= IDLE;
+						// 判断是否输出正确 ，存储modStatus和data1 data2进入磁盘
+					end
+				end
+				FEEDBACK:
+				begin
 					
+				end
+				default:
+				begin
+					state <= IDLE;
 				end
 			endcase
 		end
 	end
+endmodule
 	
 	
 	
