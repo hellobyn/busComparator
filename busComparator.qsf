@@ -57,3 +57,4 @@ set_global_assignment -name VERILOG_FILE busComparator.v
 set_global_assignment -name VERILOG_FILE compD48.v
 set_global_assignment -name VERILOG_FILE compCtrl.v
 set_global_assignment -name VERILOG_FILE outputCtrl.v
+set_global_assignment -name VERILOG_FILE outputBlock.v

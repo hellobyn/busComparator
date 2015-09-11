@@ -113,7 +113,7 @@ module outputCtrl
 		else
 		begin
 			relayCtrl <= clk2;
-		end	
+		end
 	end
 	
 	always @(posedge clk3 or negedge clk3 or posedge outputEn)
