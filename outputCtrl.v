@@ -86,7 +86,7 @@ module outputCtrl
 						//三次错误LED使能
 						state <= LOCK;
 					end
-					errorCount <= errorCount + 1;
+					errorCount <= errorCount + 1'b1;
 				end
 				LOCK:
 				begin
@@ -108,7 +108,7 @@ module outputCtrl
 		end
 		else if(order)
 		begin
-			relayCtrl <= !clk2;
+			relayCtrl <= ~clk2;
 		end
 		else
 		begin
@@ -138,7 +138,7 @@ module outputCtrl
 			end
 			else
 			begin
-				switchCtrl <= !clk3;
+				switchCtrl <= ~clk3;
 			end
 		end
 	end

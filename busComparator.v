@@ -28,14 +28,10 @@
 *****************************************************************************************/
 module busComparator
 (
-	clk,
-	rst1,
-	ret2,
-	
+	input clk,
+	input rst1,
+	input ret2,
 );
-
-input clk;
-input rst;
 
 always @(posedge clk or negedge clk) begin
 	if(rst) begin

@@ -36,8 +36,8 @@ module outputBlock
 	reg [3:0] clkPeak1;
 	reg [3:0] clkPeak2;
 	
-	assign clkPeak1 = switchCtrl1 ? 1 : 15;
-	assign clkPeak2 = switchCtrl2 ? 15 : 1;
+	assign clkPeak1 = switchCtrl1 ? 4'd1 : 4'd15;
+	assign clkPeak2 = switchCtrl2 ? 4'd15 : 4'd1;
 	assign relayCtrl = relayCtrl1 ^ relayCtrl2;
 	
 	always @(posedge clk)
@@ -57,12 +57,14 @@ module outputBlock
 		if(rst)
 		begin
 			switchEn <= 1;
+			clkCount1 <= 0;
+			clkCount2 <= 0;
 		end
 		else
 		begin
 			switchEn <= ((clkCount1 <= clkPeak1) && (clkCount2 <= clkPeak2)) ? 0 : 1;
-			clkCount1 <= clkCount1 + 1;
-			clkCount2 <= clkCount2 + 1;
+			clkCount1 <= clkCount1 + 1'b1;
+			clkCount2 <= clkCount2 + 1'b1;
 		end
 	end
 	
