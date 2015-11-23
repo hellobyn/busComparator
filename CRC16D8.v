@@ -3,10 +3,10 @@
 **                               		北京交通大学                                     
 **
 **----------------------------------------------------------------------------------------
-** 	文件名：			CRC16D8.v
+** 	文件名：		CRC16D8.v
 ** 	创建时间：		2015-8-21 10:00
 ** 	创建人员： 		赵秉贤
-** 	文件描述：  		CRC16校验算法文件
+** 	文件描述：  	CRC16校验算法文件
 ** 
 **----------------------------------------------------------------------------------------
 ** 	最后修改时间：	2015-8-24 10:00 
@@ -25,7 +25,7 @@ module CRC16D8(
 	input	crcEn,
 	input	rst,
 	input	clk,
-	output [15:0] crcOut);
+	output 	[15:0] crcOut);
 
 	reg [7:0] data;
 	reg [15:0] crcReg;
@@ -34,8 +34,8 @@ module CRC16D8(
 	assign crcOut = nextCRC;
 
 	always @(posedge clk, posedge rst) begin
-		if(rst) begin
-			crcReg <= {16{1'b1}};
+		if(rst) begin										/*	循环复位赋值			*/
+			crcReg <= {16{1'b1}};						
 		end
 		else begin
 			crcReg <= crcEn ? nextCRC : crcReg;

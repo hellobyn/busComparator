@@ -3,10 +3,10 @@
 **                               		北京交通大学                                     
 **
 **----------------------------------------------------------------------------------------
-** 	文件名：			compD48.v
+** 	文件名：		compD48.v
 ** 	创建时间：		2015-9-6 17:20
 ** 	创建人员： 		赵秉贤
-** 	文件描述：  		两组48位数据比较器
+** 	文件描述：  	两组48位数据比较器
 ** 
 **----------------------------------------------------------------------------------------
 ** 	最后修改时间：	2015-9-6 17:20 
@@ -22,17 +22,17 @@ module compD48
 (
 	input clk,
 	input rst,
-	input [47:0] dataIn1,
-	input [47:0] dataIn2,
-	output [1:0] compStatus
+	input [63:0] dataIn1,
+	input [63:0] dataIn2,
+	output reg [1:0] compStatus								/*	比较模块状态寄存器		*/
 );
-	reg [47:0] data1;
+	reg [47:0] data1;										/*	除CRC校验码的高48位数据	*/
 	reg [47:0] data2;
 	reg [1:0] state;
-	wire dataXOR;
+	wire dataXOR;											/*	两组数据按位异或		*/
 	parameter IDLE = 0, COMP = 1, TRUE = 2, FALSE = 3;
 	
-	assign dataXOR = (data1^data2) ? 1 : 0;
+	assign dataXOR = (data1^data2) ? 1 : 0;					/*	两组数据按位异或		*/
 	
 	always @(negedge clk)
 	begin
@@ -48,8 +48,8 @@ module compD48
 			case(state)
 				IDLE:
 				begin
-					data1 <= dataIn1;
-					data2 <= dataIn2;
+					data1 <= dataIn1[63:16];				/*	高48位数据截取			*/
+					data2 <= dataIn2[63:16];
 					state <= COMP;
 				end
 				COMP:
@@ -57,24 +57,15 @@ module compD48
 					if(dataXOR) state <= FALSE;
 					else  state <= TRUE;
 				end
-				TRUE：
+				TRUE:
 				begin
 					compStatus <= 2'b00;
 				end
-				FALSE：
+        FALSE:
 				begin
 					compStatus <= 2'b01;
 				end
 			endcase
 		end
 	end
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+endmodule

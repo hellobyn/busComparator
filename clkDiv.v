@@ -18,7 +18,7 @@
 
 `timescale 1ps / 1ps
 
-module clkDiv
+module clkDiv	//是否需要使用PLL产生分频信号待验证
 (
 	input clk,
 	input rst,
@@ -26,8 +26,8 @@ module clkDiv
 	output clk4,
 	output clk8,
 	output clk16,
-	output reg clkPls,
-)
+	output reg clkPls
+);
 	reg [7:0] clkCount;
 	
 	assign clk2 = clkCount[0];
@@ -39,18 +39,18 @@ module clkDiv
 	begin
 		if(rst)
 		begin
-			clkCount <= 7'd0;
+			clkCount <= 8'h00;
 			clkPls <= 0;
 		end
 		else 
 		begin
-			if(~(clkCount % 32))
+			if(!(clkCount & 8'h1f))
 				clkPls <= 1;
-			else if (~(clkCount % 4))
+			else if (!(clkCount & 8'h3))
 				clkPls <= 0; 
 			else
 				clkPls <= clkPls;
-			clkCount <= clkCount + 7'd1;		//注意解决程序中所有的数据位宽问题！！！
+			clkCount <= clkCount + 8'd1;		//注意解决程序中所有的数据位宽问题！！！
 		end
 	end
 endmodule

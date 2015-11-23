@@ -3,10 +3,10 @@
 **                               		北京交通大学                                     
 **
 **----------------------------------------------------------------------------------------
-** 	文件名：			CRC16D64.v
+** 	文件名：		CRC16D64.v
 ** 	创建时间：		2015-9-1 20:45
 ** 	创建人员： 		赵秉贤
-** 	文件描述：  		64位数据的CRC16校验输出
+** 	文件描述：  	64位数据的CRC16校验输出
 ** 
 **----------------------------------------------------------------------------------------
 ** 	最后修改时间：	2015-9-1 20:45 
@@ -20,17 +20,17 @@
 
 module CRC16D64
 (
-	input clk,
+	input clk,													
 	input rst,
-	input [63:0] dataIn,
-	input [15:0] crcOut,
-	output reg crcRst,
-	output reg crcEn,
-	output reg [1:0] crcStatus,	//1: 等待为1，完成为0 //0: 正确为0，错误置1
-	output reg [7:0] dataCaches
+	input [63:0] dataIn,									/*	34位数据输入			*/
+	input [15:0] crcOut,									/*	CRC解码输出				*/
+	output reg crcRst,										/*	CRC16D8复位端口			*/
+	output reg crc8En,										/*	CRC16D8失能端			*/
+	output reg [1:0] crcStatus,								/*	CRC状态寄存器			*/
+	output reg [7:0] dataCache								/*	输入CRC16D8的数据		*/
 );
 
-	reg [2:0] state;
+	reg [2:0] state;										/*	CRC字节型算法状态		*/
 	reg [3:0] byte;
 	reg [15:0] checkCode;
 	parameter IDLE = 0, CRCCALC = 1, JUDGE = 2, TRUE = 3, FALSE = 4;
@@ -39,10 +39,10 @@ module CRC16D64
 	
 	always @(negedge clk)
 	begin	
-		if(rst)
+		if(rst)												/*	初始化赋值				*/
 		begin
 			crcRst <= 1;
-			crcEn <= 0;
+			crc8En <= 0;
 			state <= IDLE;
 			byte <= BYTE8;
 			dataCache <= 8'hx;
@@ -51,11 +51,11 @@ module CRC16D64
 		else
 		begin
 			case (state)
-				IDLE:
+				IDLE:										/*	默认状态				*/
 				begin
 					dataCache <= 8'hx;
-					crcRst <= 1;
-					crcEn <= 0;
+					crcRst <= 1;							/*	复位crcReg初值为16{1}	*/
+					crc8En <= 0;							/*	字节型算法使能			*/
 					byte <= BYTE8;
 					state <= CRCCALC;
 				end
@@ -64,13 +64,13 @@ module CRC16D64
 					case (byte)
 						BYTE8:
 						begin	
-							crcRst <= 0;
-							dataCache <= dataIn[63:56];
-							byte <= BYTE7;
+							crcRst <= 0;					/*	使能crc16D8复位端		*/
+							dataCache <= dataIn[63:56];		/*	最高位数据输入			*/
+							byte <= BYTE7;					/*	状态跳转				*/
 						end
 						BYTE7:
 						begin
-							crcEn <= 1;
+							crc8En <= 1;					/*	第2次CRC使能字节算法	*/
 							dataCache <= dataIn[55:48];
 							byte <= BYTE6;
 						end
@@ -104,12 +104,12 @@ module CRC16D64
 							dataCache <= dataIn[7:0];
 							byte <= DONE;
 						end
-						DONE:
+						DONE:								/*	8字节计算完成			*/
 						begin
-							dataCache <= 8'hx;
+							dataCache <= 8'hx;				/*	所有状态复位			*/
 							checkCode <= crcOut;
 							crcRst <= 1;
-							crcEn <= 0;
+							crc8En <= 0;
 							byte <= BYTE8;
 							state <= JUDGE;
 						end
@@ -121,7 +121,7 @@ module CRC16D64
 				end
 				JUDGE:
 				begin
-					if (checkCode == 16'h1D0F)
+					if (checkCode == 16'h1D0F)				/*	判断CRC解码结果是否正确	*/
 					begin
 						state <= TRUE;
 					end
