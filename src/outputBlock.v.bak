@@ -1,0 +1,82 @@
+﻿/*****************************************************************************************
+** 
+**                               		北京交通大学                                     
+**
+**----------------------------------------------------------------------------------------
+** 	文件名：		outputBlock.v
+** 	创建时间：		2015-9-11 10:30
+** 	创建人员： 		赵秉贤
+** 	文件描述：  	比较器输出单元：判断输出有效性，并使能或失能输出
+**					本单元为输模块的仿真描述，需要真实硬件实现
+** 
+**----------------------------------------------------------------------------------------
+** 	最后修改时间：	2015-9-11 10:30
+** 	最后修改人员：	赵秉贤
+** 	版本号：	   	V1.0
+** 	版本描述：		最终输出单元，接输出板电源开关
+**
+*****************************************************************************************/
+
+`timescale 1ps / 1ps
+
+module outputBlock
+(
+	input clk,
+	input rst,
+	input relayCtrl1,
+	input relayCtrl2,
+	input switchCtrl1,
+	input switchCtrl2,
+	output reg relayEn,
+	output reg switchEn
+);
+
+	wire relayCtrl;
+	reg [4:0] clkCount1;
+	reg [4:0] clkCount2;
+	wire [4:0] clkPeak1;
+	wire [4:0] clkPeak2;
+	
+	assign clkPeak1 = switchCtrl1 ? 5'h1 : 5'hf;			/*	脉冲高低电平长度计数	*/
+	assign clkPeak2 = switchCtrl2 ? 5'hf : 5'h1;			/*	双模块高低电平长度对等	*/
+	assign relayCtrl = relayCtrl1 ^ relayCtrl2;				/*	互补时钟输出鉴相		*/
+	
+	always @(posedge clk)
+	begin
+		if(rst)
+		begin
+			relayEn <= 1;
+		end
+		else
+		begin
+			relayEn <= relayCtrl ? 0 : 1; 					/*	判断电平是否互补		*/
+		end
+	end
+	
+	always @(negedge clk)
+	begin
+		if(rst)
+		begin
+			switchEn <= 1;
+			clkCount1 <= 5'd16;
+			clkCount2 <= 5'd16;
+		end
+		else
+		begin
+			switchEn <= ((clkCount1 <= clkPeak1) && (clkCount2 <= clkPeak2)) ? 0 : 1;
+															/*	判断电平长度			*/
+			clkCount1 <= clkCount1 + 1'b1;
+			clkCount2 <= clkCount2 + 1'b1;
+		end
+	end
+	
+	always @(switchCtrl1) 									/*	跳变沿计数清零			*/
+	begin
+		clkCount1 <= 0;
+	end
+	
+	always @(switchCtrl2)  									//异步触发能否综合尚未验证
+	begin
+		clkCount2 <= 0;
+	end
+endmodule

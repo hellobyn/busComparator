@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue Nov 24 20:48:31 2015
+Quartus II 64-Bit Version : 11.0 Build 208 07/03/2011 SP 1 SJ Full Version
+Revision Name : busComparator
+Top-level Entity Name : busComparator
+Family : Cyclone IV E
+Device : EP4CE15F17C8
+Timing Models : Final
+Total logic elements : 648 / 15,408 ( 4 % )
+    Total combinational functions : 491 / 15,408 ( 3 % )
+    Dedicated logic registers : 493 / 15,408 ( 3 % )
+Total registers : 493
+Total pins : 138 / 166 ( 83 % )
+Total virtual pins : 0
+Total memory bits : 0 / 516,096 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 112 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

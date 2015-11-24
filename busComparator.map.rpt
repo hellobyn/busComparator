@@ -1,0 +1,1226 @@
+Analysis & Synthesis report for busComparator
+Tue Nov 24 20:48:24 2015
+Quartus II 64-Bit Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |busComparator|compTop:comparator|outputCtrl:outputCtrl_2|state
+  9. State Machine - |busComparator|compTop:comparator|outputCtrl:outputCtrl_1|state
+ 10. State Machine - |busComparator|compTop:comparator|compD48:compD48_2|state
+ 11. State Machine - |busComparator|compTop:comparator|compD48:compD48_1|state
+ 12. State Machine - |busComparator|compTop:comparator|compCtrl:compCtrl_2|state
+ 13. State Machine - |busComparator|compTop:comparator|compCtrl:compCtrl_1|state
+ 14. State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_4|oneByte
+ 15. State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_4|state
+ 16. State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_3|oneByte
+ 17. State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_3|state
+ 18. State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_2|oneByte
+ 19. State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_2|state
+ 20. State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_1|oneByte
+ 21. State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_1|state
+ 22. Registers Removed During Synthesis
+ 23. Removed Registers Triggering Further Register Optimizations
+ 24. General Register Statistics
+ 25. Inverted Register Statistics
+ 26. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 27. Parameter Settings for User Entity Instance: compTop:comparator|CRC16D64:CRC16D64_1
+ 28. Parameter Settings for User Entity Instance: compTop:comparator|CRC16D64:CRC16D64_2
+ 29. Parameter Settings for User Entity Instance: compTop:comparator|CRC16D64:CRC16D64_3
+ 30. Parameter Settings for User Entity Instance: compTop:comparator|CRC16D64:CRC16D64_4
+ 31. Parameter Settings for User Entity Instance: compTop:comparator|compCtrl:compCtrl_1
+ 32. Parameter Settings for User Entity Instance: compTop:comparator|compCtrl:compCtrl_2
+ 33. Parameter Settings for User Entity Instance: compTop:comparator|compD48:compD48_1
+ 34. Parameter Settings for User Entity Instance: compTop:comparator|compD48:compD48_2
+ 35. Parameter Settings for User Entity Instance: compTop:comparator|outputCtrl:outputCtrl_1
+ 36. Parameter Settings for User Entity Instance: compTop:comparator|outputCtrl:outputCtrl_2
+ 37. Port Connectivity Checks: "compTop:comparator|outputBlock:outputBlock_0"
+ 38. Port Connectivity Checks: "compTop:comparator|clkDiv:clkDiv_0"
+ 39. Elapsed Time Per Partition
+ 40. Analysis & Synthesis Messages
+ 41. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2011 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Nov 24 20:48:24 2015          ;
+; Quartus II 64-Bit Version          ; 11.0 Build 208 07/03/2011 SP 1 SJ Full Version ;
+; Revision Name                      ; busComparator                                  ;
+; Top-level Entity Name              ; busComparator                                  ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 732                                            ;
+;     Total combinational functions  ; 491                                            ;
+;     Dedicated logic registers      ; 493                                            ;
+; Total registers                    ; 493                                            ;
+; Total pins                         ; 138                                            ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE15F17C8       ;                    ;
+; Top-level entity name                                                      ; busComparator      ; busComparator      ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ; < 0.1%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                   ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------+
+; src/outputCtrl.v                 ; yes             ; User Verilog HDL File              ; E:/MyProject/My_project/Altera/busComparator/src/outputCtrl.v  ;
+; src/outputBlock.v                ; yes             ; User Verilog HDL File              ; E:/MyProject/My_project/Altera/busComparator/src/outputBlock.v ;
+; src/CRC16D64.v                   ; yes             ; User Verilog HDL File              ; E:/MyProject/My_project/Altera/busComparator/src/CRC16D64.v    ;
+; src/CRC16D8.v                    ; yes             ; User Verilog HDL File              ; E:/MyProject/My_project/Altera/busComparator/src/CRC16D8.v     ;
+; src/compTop.v                    ; yes             ; User Verilog HDL File              ; E:/MyProject/My_project/Altera/busComparator/src/compTop.v     ;
+; src/compD48.v                    ; yes             ; User Verilog HDL File              ; E:/MyProject/My_project/Altera/busComparator/src/compD48.v     ;
+; src/compCtrl.v                   ; yes             ; User Verilog HDL File              ; E:/MyProject/My_project/Altera/busComparator/src/compCtrl.v    ;
+; src/clkDiv.v                     ; yes             ; User Verilog HDL File              ; E:/MyProject/My_project/Altera/busComparator/src/clkDiv.v      ;
+; busComparator.bdf                ; yes             ; User Block Diagram/Schematic File  ; E:/MyProject/My_project/Altera/busComparator/busComparator.bdf ;
++----------------------------------+-----------------+------------------------------------+----------------------------------------------------------------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 732       ;
+;                                             ;           ;
+; Total combinational functions               ; 491       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 272       ;
+;     -- 3 input functions                    ; 53        ;
+;     -- <=2 input functions                  ; 166       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 456       ;
+;     -- arithmetic mode                      ; 35        ;
+;                                             ;           ;
+; Total registers                             ; 493       ;
+;     -- Dedicated logic registers            ; 493       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 138       ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 493       ;
+; Total fan-out                               ; 3171      ;
+; Average fan-out                             ; 2.52      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                    ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------+
+; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                       ; Library Name ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------+
+; |busComparator                  ; 491 (0)           ; 493 (0)      ; 0           ; 0            ; 0       ; 0         ; 138  ; 0            ; |busComparator                                            ;              ;
+;    |compTop:comparator|         ; 491 (0)           ; 493 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator                         ;              ;
+;       |CRC16D64:CRC16D64_1|     ; 69 (69)           ; 42 (42)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|CRC16D64:CRC16D64_1     ;              ;
+;       |CRC16D64:CRC16D64_2|     ; 69 (69)           ; 42 (42)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|CRC16D64:CRC16D64_2     ;              ;
+;       |CRC16D64:CRC16D64_3|     ; 29 (29)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|CRC16D64:CRC16D64_3     ;              ;
+;       |CRC16D8:CRC16D8_1|       ; 31 (31)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|CRC16D8:CRC16D8_1       ;              ;
+;       |CRC16D8:CRC16D8_2|       ; 31 (31)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|CRC16D8:CRC16D8_2       ;              ;
+;       |CRC16D8:CRC16D8_3|       ; 30 (30)           ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|CRC16D8:CRC16D8_3       ;              ;
+;       |clkDiv:clkDiv_0|         ; 7 (7)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|clkDiv:clkDiv_0         ;              ;
+;       |compCtrl:compCtrl_1|     ; 51 (51)           ; 145 (145)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|compCtrl:compCtrl_1     ;              ;
+;       |compCtrl:compCtrl_2|     ; 42 (42)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|compCtrl:compCtrl_2     ;              ;
+;       |compD48:compD48_1|       ; 37 (37)           ; 101 (101)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|compD48:compD48_1       ;              ;
+;       |compD48:compD48_2|       ; 3 (3)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|compD48:compD48_2       ;              ;
+;       |outputCtrl:outputCtrl_1| ; 90 (90)           ; 40 (40)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|outputCtrl:outputCtrl_1 ;              ;
+;       |outputCtrl:outputCtrl_2| ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |busComparator|compTop:comparator|outputCtrl:outputCtrl_2 ;              ;
++---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|outputCtrl:outputCtrl_2|state ;
++-------------+------------+------------+-----------------------------------------+
+; Name        ; state.IDLE ; state.LOCK ; state.ERROR                             ;
++-------------+------------+------------+-----------------------------------------+
+; state.IDLE  ; 0          ; 0          ; 0                                       ;
+; state.ERROR ; 1          ; 0          ; 1                                       ;
+; state.LOCK  ; 1          ; 1          ; 0                                       ;
++-------------+------------+------------+-----------------------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|outputCtrl:outputCtrl_1|state ;
++-------------+------------+------------+-----------------------------------------+
+; Name        ; state.IDLE ; state.LOCK ; state.ERROR                             ;
++-------------+------------+------------+-----------------------------------------+
+; state.IDLE  ; 0          ; 0          ; 0                                       ;
+; state.ERROR ; 1          ; 0          ; 1                                       ;
+; state.LOCK  ; 1          ; 1          ; 0                                       ;
++-------------+------------+------------+-----------------------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|compD48:compD48_2|state ;
++-------------+-------------+------------+------------+---------------------+
+; Name        ; state.FALSE ; state.TRUE ; state.COMP ; state.IDLE          ;
++-------------+-------------+------------+------------+---------------------+
+; state.IDLE  ; 0           ; 0          ; 0          ; 0                   ;
+; state.COMP  ; 0           ; 0          ; 1          ; 1                   ;
+; state.TRUE  ; 0           ; 1          ; 0          ; 1                   ;
+; state.FALSE ; 1           ; 0          ; 0          ; 1                   ;
++-------------+-------------+------------+------------+---------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|compD48:compD48_1|state ;
++-------------+-------------+------------+------------+---------------------+
+; Name        ; state.FALSE ; state.TRUE ; state.COMP ; state.IDLE          ;
++-------------+-------------+------------+------------+---------------------+
+; state.IDLE  ; 0           ; 0          ; 0          ; 0                   ;
+; state.COMP  ; 0           ; 0          ; 1          ; 1                   ;
+; state.TRUE  ; 0           ; 1          ; 0          ; 1                   ;
+; state.FALSE ; 1           ; 0          ; 0          ; 1                   ;
++-------------+-------------+------------+------------+---------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|compCtrl:compCtrl_2|state                    ;
++-----------------+-----------------+---------------+--------------+------------+----------------+
+; Name            ; state.OUTPUTING ; state.COMPING ; state.CRCING ; state.IDLE ; state.FEEDBACK ;
++-----------------+-----------------+---------------+--------------+------------+----------------+
+; state.IDLE      ; 0               ; 0             ; 0            ; 0          ; 0              ;
+; state.CRCING    ; 0               ; 0             ; 1            ; 1          ; 0              ;
+; state.COMPING   ; 0               ; 1             ; 0            ; 1          ; 0              ;
+; state.OUTPUTING ; 1               ; 0             ; 0            ; 1          ; 0              ;
+; state.FEEDBACK  ; 0               ; 0             ; 0            ; 1          ; 1              ;
++-----------------+-----------------+---------------+--------------+------------+----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|compCtrl:compCtrl_1|state                    ;
++-----------------+-----------------+---------------+--------------+------------+----------------+
+; Name            ; state.OUTPUTING ; state.COMPING ; state.CRCING ; state.IDLE ; state.FEEDBACK ;
++-----------------+-----------------+---------------+--------------+------------+----------------+
+; state.IDLE      ; 0               ; 0             ; 0            ; 0          ; 0              ;
+; state.CRCING    ; 0               ; 0             ; 1            ; 1          ; 0              ;
+; state.COMPING   ; 0               ; 1             ; 0            ; 1          ; 0              ;
+; state.OUTPUTING ; 1               ; 0             ; 0            ; 1          ; 0              ;
+; state.FEEDBACK  ; 0               ; 0             ; 0            ; 1          ; 1              ;
++-----------------+-----------------+---------------+--------------+------------+----------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_4|oneByte                                                                                ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+--------------+
+; Name          ; oneByte.BYTE1 ; oneByte.BYTE2 ; oneByte.BYTE3 ; oneByte.BYTE4 ; oneByte.BYTE5 ; oneByte.BYTE6 ; oneByte.BYTE7 ; oneByte.BYTE8 ; oneByte.DONE ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+--------------+
+; oneByte.BYTE8 ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0            ;
+; oneByte.BYTE7 ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 1             ; 0            ;
+; oneByte.BYTE6 ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE5 ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE4 ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE3 ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE2 ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE1 ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.DONE  ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 1            ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+--------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_4|state         ;
++---------------+------------+-------------+---------------+------------+-------------+
+; Name          ; state.TRUE ; state.JUDGE ; state.CRCCALC ; state.IDLE ; state.FALSE ;
++---------------+------------+-------------+---------------+------------+-------------+
+; state.IDLE    ; 0          ; 0           ; 0             ; 0          ; 0           ;
+; state.CRCCALC ; 0          ; 0           ; 1             ; 1          ; 0           ;
+; state.JUDGE   ; 0          ; 1           ; 0             ; 1          ; 0           ;
+; state.TRUE    ; 1          ; 0           ; 0             ; 1          ; 0           ;
+; state.FALSE   ; 0          ; 0           ; 0             ; 1          ; 1           ;
++---------------+------------+-------------+---------------+------------+-------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_3|oneByte                                                                                ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+--------------+
+; Name          ; oneByte.BYTE1 ; oneByte.BYTE2 ; oneByte.BYTE3 ; oneByte.BYTE4 ; oneByte.BYTE5 ; oneByte.BYTE6 ; oneByte.BYTE7 ; oneByte.BYTE8 ; oneByte.DONE ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+--------------+
+; oneByte.BYTE8 ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0            ;
+; oneByte.BYTE7 ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 1             ; 0            ;
+; oneByte.BYTE6 ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE5 ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE4 ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE3 ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE2 ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE1 ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.DONE  ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 1            ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+--------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_3|state         ;
++---------------+------------+-------------+---------------+------------+-------------+
+; Name          ; state.TRUE ; state.JUDGE ; state.CRCCALC ; state.IDLE ; state.FALSE ;
++---------------+------------+-------------+---------------+------------+-------------+
+; state.IDLE    ; 0          ; 0           ; 0             ; 0          ; 0           ;
+; state.CRCCALC ; 0          ; 0           ; 1             ; 1          ; 0           ;
+; state.JUDGE   ; 0          ; 1           ; 0             ; 1          ; 0           ;
+; state.TRUE    ; 1          ; 0           ; 0             ; 1          ; 0           ;
+; state.FALSE   ; 0          ; 0           ; 0             ; 1          ; 1           ;
++---------------+------------+-------------+---------------+------------+-------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_2|oneByte                                                                                ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+--------------+
+; Name          ; oneByte.BYTE1 ; oneByte.BYTE2 ; oneByte.BYTE3 ; oneByte.BYTE4 ; oneByte.BYTE5 ; oneByte.BYTE6 ; oneByte.BYTE7 ; oneByte.BYTE8 ; oneByte.DONE ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+--------------+
+; oneByte.BYTE8 ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0            ;
+; oneByte.BYTE7 ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 1             ; 0            ;
+; oneByte.BYTE6 ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE5 ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE4 ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE3 ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE2 ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE1 ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.DONE  ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 1            ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+--------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_2|state         ;
++---------------+------------+-------------+---------------+------------+-------------+
+; Name          ; state.TRUE ; state.JUDGE ; state.CRCCALC ; state.IDLE ; state.FALSE ;
++---------------+------------+-------------+---------------+------------+-------------+
+; state.IDLE    ; 0          ; 0           ; 0             ; 0          ; 0           ;
+; state.CRCCALC ; 0          ; 0           ; 1             ; 1          ; 0           ;
+; state.JUDGE   ; 0          ; 1           ; 0             ; 1          ; 0           ;
+; state.TRUE    ; 1          ; 0           ; 0             ; 1          ; 0           ;
+; state.FALSE   ; 0          ; 0           ; 0             ; 1          ; 1           ;
++---------------+------------+-------------+---------------+------------+-------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_1|oneByte                                                                                ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+--------------+
+; Name          ; oneByte.BYTE1 ; oneByte.BYTE2 ; oneByte.BYTE3 ; oneByte.BYTE4 ; oneByte.BYTE5 ; oneByte.BYTE6 ; oneByte.BYTE7 ; oneByte.BYTE8 ; oneByte.DONE ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+--------------+
+; oneByte.BYTE8 ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0            ;
+; oneByte.BYTE7 ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 1             ; 0            ;
+; oneByte.BYTE6 ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE5 ; 0             ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE4 ; 0             ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE3 ; 0             ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE2 ; 0             ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.BYTE1 ; 1             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 0            ;
+; oneByte.DONE  ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 0             ; 1             ; 1            ;
++---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+---------------+--------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------+
+; State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_1|state         ;
++---------------+------------+-------------+---------------+------------+-------------+
+; Name          ; state.TRUE ; state.JUDGE ; state.CRCCALC ; state.IDLE ; state.FALSE ;
++---------------+------------+-------------+---------------+------------+-------------+
+; state.IDLE    ; 0          ; 0           ; 0             ; 0          ; 0           ;
+; state.CRCCALC ; 0          ; 0           ; 1             ; 1          ; 0           ;
+; state.JUDGE   ; 0          ; 1           ; 0             ; 1          ; 0           ;
+; state.TRUE    ; 1          ; 0           ; 0             ; 1          ; 0           ;
+; state.FALSE   ; 0          ; 0           ; 0             ; 1          ; 1           ;
++---------------+------------+-------------+---------------+------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                  ;
++------------------------------------------------------------+------------------------------------------------------------------------+
+; Register name                                              ; Reason for Removal                                                     ;
++------------------------------------------------------------+------------------------------------------------------------------------+
+; compTop:comparator|compCtrl:compCtrl_2|data2[0..63]        ; Stuck at GND due to stuck port data_in                                 ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[0..63]        ; Stuck at GND due to stuck port data_in                                 ;
+; compTop:comparator|compD48:compD48_2|data2[0..47]          ; Stuck at GND due to stuck port data_in                                 ;
+; compTop:comparator|compD48:compD48_2|data1[0..47]          ; Stuck at GND due to stuck port data_in                                 ;
+; compTop:comparator|CRC16D64:CRC16D64_4|dataCache[1..7]     ; Merged with compTop:comparator|CRC16D64:CRC16D64_4|dataCache[0]        ;
+; compTop:comparator|CRC16D8:CRC16D8_4|data[1..7]            ; Merged with compTop:comparator|CRC16D8:CRC16D8_4|data[0]               ;
+; compTop:comparator|CRC16D64:CRC16D64_3|dataCache[1..7]     ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|dataCache[0]        ;
+; compTop:comparator|CRC16D8:CRC16D8_3|data[1..7]            ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|data[0]               ;
+; compTop:comparator|CRC16D64:CRC16D64_4|dataCache[0]        ; Stuck at GND due to stuck port data_in                                 ;
+; compTop:comparator|CRC16D64:CRC16D64_3|dataCache[0]        ; Stuck at GND due to stuck port data_in                                 ;
+; compTop:comparator|CRC16D8:CRC16D8_4|data[0]               ; Stuck at GND due to stuck port data_in                                 ;
+; compTop:comparator|CRC16D8:CRC16D8_3|data[0]               ; Stuck at GND due to stuck port data_in                                 ;
+; compTop:comparator|outputCtrl:outputCtrl_2|state~7         ; Lost fanout                                                            ;
+; compTop:comparator|outputCtrl:outputCtrl_1|state~7         ; Lost fanout                                                            ;
+; compTop:comparator|compD48:compD48_2|state~4               ; Lost fanout                                                            ;
+; compTop:comparator|compD48:compD48_2|state~5               ; Lost fanout                                                            ;
+; compTop:comparator|compD48:compD48_1|state~4               ; Lost fanout                                                            ;
+; compTop:comparator|compD48:compD48_1|state~5               ; Lost fanout                                                            ;
+; compTop:comparator|compCtrl:compCtrl_2|state~7             ; Lost fanout                                                            ;
+; compTop:comparator|compCtrl:compCtrl_2|state~8             ; Lost fanout                                                            ;
+; compTop:comparator|compCtrl:compCtrl_1|state~7             ; Lost fanout                                                            ;
+; compTop:comparator|compCtrl:compCtrl_1|state~8             ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_4|oneByte~2           ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_4|oneByte~3           ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_4|oneByte~4           ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_4|state~7             ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_4|state~8             ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_3|oneByte~2           ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_3|oneByte~3           ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_3|oneByte~4           ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_3|state~7             ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_3|state~8             ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_2|oneByte~2           ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_2|oneByte~3           ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_2|oneByte~4           ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_2|state~7             ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_2|state~8             ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_1|oneByte~2           ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_1|oneByte~3           ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_1|oneByte~4           ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_1|state~7             ; Lost fanout                                                            ;
+; compTop:comparator|CRC16D64:CRC16D64_1|state~8             ; Lost fanout                                                            ;
+; compTop:comparator|compD48:compD48_2|state.TRUE            ; Lost fanout                                                            ;
+; compTop:comparator|compD48:compD48_1|state.TRUE            ; Lost fanout                                                            ;
+; compTop:comparator|outputCtrl:outputCtrl_2|outputEn        ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|outputEn        ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[31]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[31]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[30]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[30]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[29]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[29]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[28]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[28]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[27]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[27]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[26]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[26]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[25]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[25]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[24]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[24]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[23]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[23]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[22]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[22]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[21]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[21]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[20]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[20]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[19]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[19]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[18]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[18]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[17]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[17]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[16]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[16]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[15]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[15]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[14]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[14]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[13]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[13]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[12]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[12]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[11]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[11]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[10]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[10]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[9]    ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[9]    ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[7]    ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[7]    ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[8]    ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[8]    ;
+; compTop:comparator|outputCtrl:outputCtrl_2|errorCount[1]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|errorCount[1]   ;
+; compTop:comparator|outputCtrl:outputCtrl_2|state.IDLE      ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|state.IDLE      ;
+; compTop:comparator|outputCtrl:outputCtrl_2|state.ERROR     ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|state.ERROR     ;
+; compTop:comparator|outputCtrl:outputCtrl_2|state.LOCK      ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|state.LOCK      ;
+; compTop:comparator|outputCtrl:outputCtrl_2|outputStatus[1] ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|outputStatus[1] ;
+; compTop:comparator|compCtrl:compCtrl_2|modStatus[7]        ; Merged with compTop:comparator|compCtrl:compCtrl_2|modStatus[5]        ;
+; compTop:comparator|compCtrl:compCtrl_2|modStatus[6]        ; Merged with compTop:comparator|compCtrl:compCtrl_2|modStatus[4]        ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[6]    ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[6]    ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[5]    ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[5]    ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[4]    ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[4]    ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[3]    ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[3]    ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[2]    ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[2]    ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[1]    ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[1]    ;
+; compTop:comparator|outputCtrl:outputCtrl_2|timeCount[0]    ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|timeCount[0]    ;
+; compTop:comparator|outputCtrl:outputCtrl_2|errorCount[0]   ; Merged with compTop:comparator|outputCtrl:outputCtrl_1|errorCount[0]   ;
+; compTop:comparator|CRC16D64:CRC16D64_4|crcStatus[1]        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|crcStatus[1]        ;
+; compTop:comparator|compCtrl:compCtrl_2|crcEn2              ; Merged with compTop:comparator|compCtrl:compCtrl_2|crcEn1              ;
+; compTop:comparator|CRC16D64:CRC16D64_4|crcStatus[0]        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|crcStatus[0]        ;
+; compTop:comparator|CRC16D64:CRC16D64_4|state.FALSE         ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|state.FALSE         ;
+; compTop:comparator|CRC16D64:CRC16D64_4|state.TRUE          ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|state.TRUE          ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[5]        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[5]        ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[4]        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[4]        ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[3]        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[3]        ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[2]        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[2]        ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[1]        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[1]        ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[0]        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[0]        ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[6]        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[6]        ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[7]        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[7]        ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[8]        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[8]        ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[9]        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[9]        ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[10]       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[10]       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[11]       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[11]       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[12]       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[12]       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[13]       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[13]       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[14]       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[14]       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|checkCode[15]       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|checkCode[15]       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|state.JUDGE         ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|state.JUDGE         ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[13]            ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[13]            ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[12]            ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[12]            ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[8]             ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[8]             ;
+; compTop:comparator|CRC16D64:CRC16D64_4|oneByte.DONE        ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|oneByte.DONE        ;
+; compTop:comparator|CRC16D64:CRC16D64_4|state.CRCCALC       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|state.CRCCALC       ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[15]            ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[15]            ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[11]            ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[11]            ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[14]            ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[14]            ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[10]            ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[10]            ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[9]             ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[9]             ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[0]             ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[0]             ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[1]             ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[1]             ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[2]             ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[2]             ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[3]             ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[3]             ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[4]             ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[4]             ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[5]             ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[5]             ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[6]             ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[6]             ;
+; compTop:comparator|CRC16D8:CRC16D8_4|crcReg[7]             ; Merged with compTop:comparator|CRC16D8:CRC16D8_3|crcReg[7]             ;
+; compTop:comparator|CRC16D64:CRC16D64_4|crcRst              ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|crcRst              ;
+; compTop:comparator|CRC16D64:CRC16D64_4|crc8En              ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|crc8En              ;
+; compTop:comparator|CRC16D64:CRC16D64_4|state.IDLE          ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|state.IDLE          ;
+; compTop:comparator|CRC16D64:CRC16D64_4|oneByte.BYTE8       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|oneByte.BYTE8       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|oneByte.BYTE7       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|oneByte.BYTE7       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|oneByte.BYTE2       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|oneByte.BYTE2       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|oneByte.BYTE3       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|oneByte.BYTE3       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|oneByte.BYTE4       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|oneByte.BYTE4       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|oneByte.BYTE5       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|oneByte.BYTE5       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|oneByte.BYTE6       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|oneByte.BYTE6       ;
+; compTop:comparator|CRC16D64:CRC16D64_4|oneByte.BYTE1       ; Merged with compTop:comparator|CRC16D64:CRC16D64_3|oneByte.BYTE1       ;
+; compTop:comparator|compCtrl:compCtrl_1|state.FEEDBACK      ; Stuck at GND due to stuck port data_in                                 ;
+; compTop:comparator|compCtrl:compCtrl_2|state.FEEDBACK      ; Stuck at GND due to stuck port data_in                                 ;
+; compTop:comparator|compD48:compD48_2|state.FALSE           ; Stuck at GND due to stuck port data_in                                 ;
+; compTop:comparator|compD48:compD48_2|compStatus[0]         ; Stuck at GND due to stuck port data_in                                 ;
+; compTop:comparator|outputCtrl:outputCtrl_1|state.LOCK      ; Lost fanout                                                            ;
+; compTop:comparator|clkDiv:clkDiv_0|clkCount[5..7]          ; Lost fanout                                                            ;
+; Total Number of Removed Registers = 388                    ;                                                                        ;
++------------------------------------------------------------+------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                         ;
++--------------------------------------------------+---------------------------+------------------------------------------------------+
+; Register name                                    ; Reason for Removal        ; Registers Removed due to This Register               ;
++--------------------------------------------------+---------------------------+------------------------------------------------------+
+; compTop:comparator|compCtrl:compCtrl_2|data2[16] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[0],       ;
+;                                                  ; due to stuck port data_in ; compTop:comparator|CRC16D64:CRC16D64_4|dataCache[0], ;
+;                                                  ;                           ; compTop:comparator|CRC16D8:CRC16D8_4|data[0]         ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[0]  ; Stuck at GND              ; compTop:comparator|CRC16D64:CRC16D64_3|dataCache[0], ;
+;                                                  ; due to stuck port data_in ; compTop:comparator|CRC16D8:CRC16D8_3|data[0]         ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[20] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[4]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[19] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[3]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[18] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[2]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[17] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[1]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[21] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[5]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[22] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[6]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[23] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[7]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[24] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[8]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[25] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[9]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[26] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[10]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[27] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[11]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[28] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[12]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[29] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[13]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[30] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[14]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[31] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[15]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[32] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[16]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[33] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[17]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[34] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[18]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[35] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[19]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[36] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[20]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[37] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[21]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[38] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[22]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[39] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[23]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[40] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[24]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[41] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[25]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[42] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[26]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[43] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[27]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[44] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[28]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[45] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[29]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[46] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[30]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[47] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[31]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[48] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[32]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[49] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[33]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[50] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[34]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[51] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[35]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[52] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[36]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[53] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[37]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[54] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[38]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[55] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[39]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[56] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[40]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[57] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[41]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[58] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[42]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[59] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[43]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[60] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[44]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[61] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[45]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[62] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[46]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data2[63] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data2[47]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[16] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[0]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[17] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[1]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[18] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[2]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[19] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[3]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[20] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[4]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[21] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[5]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[22] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[6]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[23] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[7]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[24] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[8]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[25] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[9]        ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[26] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[10]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[27] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[11]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[28] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[12]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[29] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[13]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[30] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[14]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[31] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[15]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[32] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[16]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[33] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[17]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[34] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[18]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[35] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[19]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[36] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[20]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[37] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[21]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[38] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[22]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[39] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[23]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[40] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[24]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[41] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[25]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[42] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[26]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[43] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[27]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[44] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[28]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[45] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[29]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[46] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[30]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[47] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[31]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[48] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[32]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[49] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[33]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[50] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[34]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[51] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[35]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[52] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[36]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[53] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[37]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[54] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[38]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[55] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[39]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[56] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[40]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[57] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[41]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[58] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[42]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[59] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[43]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[60] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[44]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[61] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[45]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[62] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[46]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compCtrl:compCtrl_2|data1[63] ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|data1[47]       ;
+;                                                  ; due to stuck port data_in ;                                                      ;
+; compTop:comparator|compD48:compD48_2|state.FALSE ; Stuck at GND              ; compTop:comparator|compD48:compD48_2|compStatus[0]   ;
+;                                                  ; due to stuck port data_in ;                                                      ;
++--------------------------------------------------+---------------------------+------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 493   ;
+; Number of registers using Synchronous Clear  ; 38    ;
+; Number of registers using Synchronous Load   ; 25    ;
+; Number of registers using Asynchronous Clear ; 48    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 410   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------+
+; Inverted Register Statistics                              ;
++-------------------------------------------------+---------+
+; Inverted Register                               ; Fan out ;
++-------------------------------------------------+---------+
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[13] ; 3       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[12] ; 3       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[8]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[15] ; 3       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[11] ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[14] ; 3       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[10] ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[9]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[1]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[0]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[2]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[3]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[5]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[6]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[7]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_1|crcReg[4]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[13] ; 3       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[12] ; 3       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[8]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[15] ; 3       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[11] ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[14] ; 3       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[10] ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[9]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[1]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[0]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[2]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[3]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[5]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[6]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[7]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_2|crcReg[4]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[13] ; 5       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[12] ; 6       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[8]  ; 3       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[15] ; 5       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[11] ; 3       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[14] ; 5       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[10] ; 3       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[9]  ; 3       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[1]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[0]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[2]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[3]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[5]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[6]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[7]  ; 1       ;
+; compTop:comparator|CRC16D8:CRC16D8_3|crcReg[4]  ; 1       ;
+; Total number of inverted registers = 48         ;         ;
++-------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------------------------------------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered                                                              ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------------------------------------------+----------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; |busComparator|compTop:comparator|outputCtrl:outputCtrl_2|errorCount[1] ;                            ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; |busComparator|compTop:comparator|outputCtrl:outputCtrl_1|errorCount[1] ;                            ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; |busComparator|compTop:comparator|outputCtrl:outputCtrl_1|timeCount[2]  ;                            ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; |busComparator|compTop:comparator|outputCtrl:outputCtrl_2|timeCount[4]  ;                            ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; |busComparator|compTop:comparator|compCtrl:compCtrl_2|dataCapture1[0]   ;                            ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; |busComparator|compTop:comparator|compCtrl:compCtrl_2|dataCapture2[0]   ;                            ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; |busComparator|compTop:comparator|compCtrl:compCtrl_1|dataCapture1[1]   ;                            ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; |busComparator|compTop:comparator|compCtrl:compCtrl_1|dataCapture2[1]   ;                            ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |busComparator|compTop:comparator|CRC16D64:CRC16D64_2|dataCache[6]      ;                            ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; |busComparator|compTop:comparator|CRC16D64:CRC16D64_1|dataCache[0]      ;                            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; |busComparator|compTop:comparator|CRC16D64:CRC16D64_4|state             ;                            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; |busComparator|compTop:comparator|CRC16D64:CRC16D64_3|state             ;                            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; |busComparator|compTop:comparator|CRC16D64:CRC16D64_2|state             ;                            ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; |busComparator|compTop:comparator|CRC16D64:CRC16D64_1|state             ;                            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; |busComparator|compTop:comparator|outputCtrl:outputCtrl_2|state         ;                            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; |busComparator|compTop:comparator|outputCtrl:outputCtrl_1|state         ;                            ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 9 LEs                ; 15 LEs                 ; |busComparator|compTop:comparator|compCtrl:compCtrl_2|state             ;                            ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; |busComparator|compTop:comparator|compCtrl:compCtrl_2|state             ;                            ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 9 LEs                ; 15 LEs                 ; |busComparator|compTop:comparator|compCtrl:compCtrl_1|state             ;                            ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; |busComparator|compTop:comparator|compCtrl:compCtrl_1|state             ;                            ;
++--------------------+-----------+---------------+----------------------+------------------------+-------------------------------------------------------------------------+----------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: compTop:comparator|CRC16D64:CRC16D64_1 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; IDLE           ; 0     ; Signed Integer                                             ;
+; CRCCALC        ; 1     ; Signed Integer                                             ;
+; JUDGE          ; 2     ; Signed Integer                                             ;
+; TRUE           ; 3     ; Signed Integer                                             ;
+; FALSE          ; 4     ; Signed Integer                                             ;
+; BYTE8          ; 0     ; Signed Integer                                             ;
+; BYTE7          ; 1     ; Signed Integer                                             ;
+; BYTE6          ; 2     ; Signed Integer                                             ;
+; BYTE5          ; 3     ; Signed Integer                                             ;
+; BYTE4          ; 4     ; Signed Integer                                             ;
+; BYTE3          ; 5     ; Signed Integer                                             ;
+; BYTE2          ; 6     ; Signed Integer                                             ;
+; BYTE1          ; 7     ; Signed Integer                                             ;
+; DONE           ; 8     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: compTop:comparator|CRC16D64:CRC16D64_2 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; IDLE           ; 0     ; Signed Integer                                             ;
+; CRCCALC        ; 1     ; Signed Integer                                             ;
+; JUDGE          ; 2     ; Signed Integer                                             ;
+; TRUE           ; 3     ; Signed Integer                                             ;
+; FALSE          ; 4     ; Signed Integer                                             ;
+; BYTE8          ; 0     ; Signed Integer                                             ;
+; BYTE7          ; 1     ; Signed Integer                                             ;
+; BYTE6          ; 2     ; Signed Integer                                             ;
+; BYTE5          ; 3     ; Signed Integer                                             ;
+; BYTE4          ; 4     ; Signed Integer                                             ;
+; BYTE3          ; 5     ; Signed Integer                                             ;
+; BYTE2          ; 6     ; Signed Integer                                             ;
+; BYTE1          ; 7     ; Signed Integer                                             ;
+; DONE           ; 8     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: compTop:comparator|CRC16D64:CRC16D64_3 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; IDLE           ; 0     ; Signed Integer                                             ;
+; CRCCALC        ; 1     ; Signed Integer                                             ;
+; JUDGE          ; 2     ; Signed Integer                                             ;
+; TRUE           ; 3     ; Signed Integer                                             ;
+; FALSE          ; 4     ; Signed Integer                                             ;
+; BYTE8          ; 0     ; Signed Integer                                             ;
+; BYTE7          ; 1     ; Signed Integer                                             ;
+; BYTE6          ; 2     ; Signed Integer                                             ;
+; BYTE5          ; 3     ; Signed Integer                                             ;
+; BYTE4          ; 4     ; Signed Integer                                             ;
+; BYTE3          ; 5     ; Signed Integer                                             ;
+; BYTE2          ; 6     ; Signed Integer                                             ;
+; BYTE1          ; 7     ; Signed Integer                                             ;
+; DONE           ; 8     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: compTop:comparator|CRC16D64:CRC16D64_4 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; IDLE           ; 0     ; Signed Integer                                             ;
+; CRCCALC        ; 1     ; Signed Integer                                             ;
+; JUDGE          ; 2     ; Signed Integer                                             ;
+; TRUE           ; 3     ; Signed Integer                                             ;
+; FALSE          ; 4     ; Signed Integer                                             ;
+; BYTE8          ; 0     ; Signed Integer                                             ;
+; BYTE7          ; 1     ; Signed Integer                                             ;
+; BYTE6          ; 2     ; Signed Integer                                             ;
+; BYTE5          ; 3     ; Signed Integer                                             ;
+; BYTE4          ; 4     ; Signed Integer                                             ;
+; BYTE3          ; 5     ; Signed Integer                                             ;
+; BYTE2          ; 6     ; Signed Integer                                             ;
+; BYTE1          ; 7     ; Signed Integer                                             ;
+; DONE           ; 8     ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: compTop:comparator|compCtrl:compCtrl_1 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; IDLE           ; 000   ; Unsigned Binary                                            ;
+; CRCING         ; 001   ; Unsigned Binary                                            ;
+; COMPING        ; 010   ; Unsigned Binary                                            ;
+; OUTPUTING      ; 011   ; Unsigned Binary                                            ;
+; FEEDBACK       ; 100   ; Unsigned Binary                                            ;
+; WAITING        ; 11    ; Unsigned Binary                                            ;
+; WRITING        ; 10    ; Unsigned Binary                                            ;
+; READING        ; 01    ; Unsigned Binary                                            ;
+; DATAREADY      ; 00    ; Unsigned Binary                                            ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: compTop:comparator|compCtrl:compCtrl_2 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; IDLE           ; 000   ; Unsigned Binary                                            ;
+; CRCING         ; 001   ; Unsigned Binary                                            ;
+; COMPING        ; 010   ; Unsigned Binary                                            ;
+; OUTPUTING      ; 011   ; Unsigned Binary                                            ;
+; FEEDBACK       ; 100   ; Unsigned Binary                                            ;
+; WAITING        ; 11    ; Unsigned Binary                                            ;
+; WRITING        ; 10    ; Unsigned Binary                                            ;
+; READING        ; 01    ; Unsigned Binary                                            ;
+; DATAREADY      ; 00    ; Unsigned Binary                                            ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: compTop:comparator|compD48:compD48_1 ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; IDLE           ; 0     ; Signed Integer                                           ;
+; COMP           ; 1     ; Signed Integer                                           ;
+; TRUE           ; 2     ; Signed Integer                                           ;
+; FALSE          ; 3     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: compTop:comparator|compD48:compD48_2 ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; IDLE           ; 0     ; Signed Integer                                           ;
+; COMP           ; 1     ; Signed Integer                                           ;
+; TRUE           ; 2     ; Signed Integer                                           ;
+; FALSE          ; 3     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: compTop:comparator|outputCtrl:outputCtrl_1 ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; IDLE           ; 0     ; Signed Integer                                                 ;
+; ERROR          ; 1     ; Signed Integer                                                 ;
+; LOCK           ; 2     ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: compTop:comparator|outputCtrl:outputCtrl_2 ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; IDLE           ; 0     ; Signed Integer                                                 ;
+; ERROR          ; 1     ; Signed Integer                                                 ;
+; LOCK           ; 2     ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "compTop:comparator|outputBlock:outputBlock_0"                                           ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; relayEn  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; switchEn ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "compTop:comparator|clkDiv:clkDiv_0"                                                  ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; clk8  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; clk16 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Full Version
+    Info: Processing started: Tue Nov 24 20:48:21 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off busComparator -c busComparator
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info: Found 1 design units, including 1 entities, in source file src/outputctrl.v
+    Info: Found entity 1: outputCtrl
+Info: Found 1 design units, including 1 entities, in source file src/outputblock.v
+    Info: Found entity 1: outputBlock
+Info: Found 1 design units, including 1 entities, in source file src/crc16d64.v
+    Info: Found entity 1: CRC16D64
+Info: Found 1 design units, including 1 entities, in source file src/crc16d8.v
+    Info: Found entity 1: CRC16D8
+Info: Found 1 design units, including 1 entities, in source file src/comptop.v
+    Info: Found entity 1: compTop
+Info: Found 1 design units, including 1 entities, in source file src/compd48.v
+    Info: Found entity 1: compD48
+Info: Found 1 design units, including 1 entities, in source file src/compctrl.v
+    Info: Found entity 1: compCtrl
+Info: Found 1 design units, including 1 entities, in source file src/clkdiv.v
+    Info: Found entity 1: clkDiv
+Info: Found 1 design units, including 1 entities, in source file buscomparator.bdf
+    Info: Found entity 1: busComparator
+Info: Elaborating entity "busComparator" for the top level hierarchy
+Info: Elaborating entity "compTop" for hierarchy "compTop:comparator"
+Info: Elaborating entity "CRC16D8" for hierarchy "compTop:comparator|CRC16D8:CRC16D8_1"
+Info: Elaborating entity "CRC16D64" for hierarchy "compTop:comparator|CRC16D64:CRC16D64_1"
+Info: Elaborating entity "clkDiv" for hierarchy "compTop:comparator|clkDiv:clkDiv_0"
+Info: Elaborating entity "compCtrl" for hierarchy "compTop:comparator|compCtrl:compCtrl_1"
+Info: Elaborating entity "compD48" for hierarchy "compTop:comparator|compD48:compD48_1"
+Info: Elaborating entity "outputCtrl" for hierarchy "compTop:comparator|outputCtrl:outputCtrl_1"
+Info: Elaborating entity "outputBlock" for hierarchy "compTop:comparator|outputBlock:outputBlock_0"
+Info: Registers with preset signals will power-up high
+Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info: Timing-Driven Synthesis is running
+Info: 36 registers lost all their fanouts during netlist optimizations. The first 36 are displayed below.
+    Info: Register "compTop:comparator|outputCtrl:outputCtrl_2|state~7" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|outputCtrl:outputCtrl_1|state~7" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|compD48:compD48_2|state~4" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|compD48:compD48_2|state~5" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|compD48:compD48_1|state~4" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|compD48:compD48_1|state~5" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|compCtrl:compCtrl_2|state~7" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|compCtrl:compCtrl_2|state~8" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|compCtrl:compCtrl_1|state~7" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|compCtrl:compCtrl_1|state~8" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_4|oneByte~2" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_4|oneByte~3" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_4|oneByte~4" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_4|state~7" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_4|state~8" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_3|oneByte~2" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_3|oneByte~3" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_3|oneByte~4" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_3|state~7" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_3|state~8" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_2|oneByte~2" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_2|oneByte~3" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_2|oneByte~4" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_2|state~7" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_2|state~8" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_1|oneByte~2" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_1|oneByte~3" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_1|oneByte~4" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_1|state~7" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|CRC16D64:CRC16D64_1|state~8" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|compD48:compD48_2|state.TRUE" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|compD48:compD48_1|state.TRUE" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|outputCtrl:outputCtrl_1|state.LOCK" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|clkDiv:clkDiv_0|clkCount[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|clkDiv:clkDiv_0|clkCount[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "compTop:comparator|clkDiv:clkDiv_0|clkCount[7]" lost all its fanouts during netlist optimizations.
+Info: Generated suppressed messages file E:/MyProject/My_project/Altera/busComparator/busComparator.map.smsg
+Info: Generating hard_block partition "hard_block:auto_generated_inst"
+Info: Implemented 920 device resources after synthesis - the final resource count might be different
+    Info: Implemented 134 input pins
+    Info: Implemented 4 output pins
+    Info: Implemented 782 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 345 megabytes
+    Info: Processing ended: Tue Nov 24 20:48:24 2015
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in E:/MyProject/My_project/Altera/busComparator/busComparator.map.smsg.
+
+

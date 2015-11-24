@@ -1,0 +1,468 @@
+Quartus II 64-Bit
+Version 11.0 Build 208 07/03/2011 Service Pack 1 SJ Full Version
+15
+1197
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+busComparator
+# storage
+db|busComparator.(0).cnf
+db|busComparator.(0).cnf
+# case_insensitive
+# source_file
+buscomparator.bdf
+6b9846f1a78eae5aa12530d6a720c00
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# entity
+CRC16D8
+# storage
+db|busComparator.(2).cnf
+db|busComparator.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+src|crc16d8.v
+e6b9e1ecf20913b4eb711e515dae62a
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+compTop:comparator|CRC16D8:CRC16D8_1
+compTop:comparator|CRC16D8:CRC16D8_2
+compTop:comparator|CRC16D8:CRC16D8_3
+compTop:comparator|CRC16D8:CRC16D8_4
+}
+# macro_sequence
+
+# end
+# entity
+clkDiv
+# storage
+db|busComparator.(4).cnf
+db|busComparator.(4).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+src|clkdiv.v
+d977383cfe18e9bc5d4e95eb609fb4
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+compTop:comparator|clkDiv:clkDiv_0
+}
+# macro_sequence
+
+# end
+# entity
+CRC16D64
+# storage
+db|busComparator.(3).cnf
+db|busComparator.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+src|crc16d64.v
+cb179423dcb19b45aefc05b3066addd
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+IDLE
+0
+PARAMETER_SIGNED_DEC
+DEF
+CRCCALC
+1
+PARAMETER_SIGNED_DEC
+DEF
+JUDGE
+2
+PARAMETER_SIGNED_DEC
+DEF
+TRUE
+3
+PARAMETER_SIGNED_DEC
+DEF
+FALSE
+4
+PARAMETER_SIGNED_DEC
+DEF
+BYTE8
+0
+PARAMETER_SIGNED_DEC
+DEF
+BYTE7
+1
+PARAMETER_SIGNED_DEC
+DEF
+BYTE6
+2
+PARAMETER_SIGNED_DEC
+DEF
+BYTE5
+3
+PARAMETER_SIGNED_DEC
+DEF
+BYTE4
+4
+PARAMETER_SIGNED_DEC
+DEF
+BYTE3
+5
+PARAMETER_SIGNED_DEC
+DEF
+BYTE2
+6
+PARAMETER_SIGNED_DEC
+DEF
+BYTE1
+7
+PARAMETER_SIGNED_DEC
+DEF
+DONE
+8
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+compTop:comparator|CRC16D64:CRC16D64_1
+compTop:comparator|CRC16D64:CRC16D64_2
+compTop:comparator|CRC16D64:CRC16D64_3
+compTop:comparator|CRC16D64:CRC16D64_4
+}
+# macro_sequence
+
+# end
+# entity
+compD48
+# storage
+db|busComparator.(6).cnf
+db|busComparator.(6).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+src|compd48.v
+1817a42d2f86876f99f19da1efe56a5
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+IDLE
+0
+PARAMETER_SIGNED_DEC
+DEF
+COMP
+1
+PARAMETER_SIGNED_DEC
+DEF
+TRUE
+2
+PARAMETER_SIGNED_DEC
+DEF
+FALSE
+3
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+compTop:comparator|compD48:compD48_1
+compTop:comparator|compD48:compD48_2
+}
+# macro_sequence
+
+# end
+# entity
+compTop
+# storage
+db|busComparator.(1).cnf
+db|busComparator.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+src|comptop.v
+6d51f6841af8743233e1a5f423b77620
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+compTop:comparator
+}
+# macro_sequence
+
+# end
+# entity
+compCtrl
+# storage
+db|busComparator.(5).cnf
+db|busComparator.(5).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+src|compctrl.v
+9131859235748f2a5236cc9d1cda465d
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+IDLE
+000
+PARAMETER_UNSIGNED_BIN
+DEF
+CRCING
+001
+PARAMETER_UNSIGNED_BIN
+DEF
+COMPING
+010
+PARAMETER_UNSIGNED_BIN
+DEF
+OUTPUTING
+011
+PARAMETER_UNSIGNED_BIN
+DEF
+FEEDBACK
+100
+PARAMETER_UNSIGNED_BIN
+DEF
+WAITING
+11
+PARAMETER_UNSIGNED_BIN
+DEF
+WRITING
+10
+PARAMETER_UNSIGNED_BIN
+DEF
+READING
+01
+PARAMETER_UNSIGNED_BIN
+DEF
+DATAREADY
+00
+PARAMETER_UNSIGNED_BIN
+DEF
+}
+# hierarchies {
+compTop:comparator|compCtrl:compCtrl_1
+compTop:comparator|compCtrl:compCtrl_2
+}
+# macro_sequence
+
+# end
+# entity
+outputCtrl
+# storage
+db|busComparator.(7).cnf
+db|busComparator.(7).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+src|outputctrl.v
+76253697f66857eee6decad186d9a8ad
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# user_parameter {
+IDLE
+0
+PARAMETER_SIGNED_DEC
+DEF
+ERROR
+1
+PARAMETER_SIGNED_DEC
+DEF
+LOCK
+2
+PARAMETER_SIGNED_DEC
+DEF
+}
+# hierarchies {
+compTop:comparator|outputCtrl:outputCtrl_1
+compTop:comparator|outputCtrl:outputCtrl_2
+}
+# macro_sequence
+
+# end
+# entity
+outputBlock
+# storage
+db|busComparator.(8).cnf
+db|busComparator.(8).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_sensitive
+# source_file
+src|outputblock.v
+23bc84870c1707f7ba15bf055905a69
+8
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+IGNORE_VERILOG_INITIAL_CONSTRUCTS
+OFF
+VERILOG_CONSTANT_LOOP_LIMIT
+5000
+VERILOG_NON_CONSTANT_LOOP_LIMIT
+250
+}
+# hierarchies {
+compTop:comparator|outputBlock:outputBlock_0
+}
+# macro_sequence
+
+# end
+# complete
+

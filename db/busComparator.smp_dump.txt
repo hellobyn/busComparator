@@ -1,0 +1,122 @@
+
+State Machine - |busComparator|compTop:comparator|outputCtrl:outputCtrl_2|state
+Name state.IDLE state.LOCK state.ERROR 
+state.IDLE 0 0 0 
+state.ERROR 1 0 1 
+state.LOCK 1 1 0 
+
+State Machine - |busComparator|compTop:comparator|outputCtrl:outputCtrl_1|state
+Name state.IDLE state.LOCK state.ERROR 
+state.IDLE 0 0 0 
+state.ERROR 1 0 1 
+state.LOCK 1 1 0 
+
+State Machine - |busComparator|compTop:comparator|compD48:compD48_2|state
+Name state.FALSE state.TRUE state.COMP state.IDLE 
+state.IDLE 0 0 0 0 
+state.COMP 0 0 1 1 
+state.TRUE 0 1 0 1 
+state.FALSE 1 0 0 1 
+
+State Machine - |busComparator|compTop:comparator|compD48:compD48_1|state
+Name state.FALSE state.TRUE state.COMP state.IDLE 
+state.IDLE 0 0 0 0 
+state.COMP 0 0 1 1 
+state.TRUE 0 1 0 1 
+state.FALSE 1 0 0 1 
+
+State Machine - |busComparator|compTop:comparator|compCtrl:compCtrl_2|state
+Name state.OUTPUTING state.COMPING state.CRCING state.IDLE state.FEEDBACK 
+state.IDLE 0 0 0 0 0 
+state.CRCING 0 0 1 1 0 
+state.COMPING 0 1 0 1 0 
+state.OUTPUTING 1 0 0 1 0 
+state.FEEDBACK 0 0 0 1 1 
+
+State Machine - |busComparator|compTop:comparator|compCtrl:compCtrl_1|state
+Name state.OUTPUTING state.COMPING state.CRCING state.IDLE state.FEEDBACK 
+state.IDLE 0 0 0 0 0 
+state.CRCING 0 0 1 1 0 
+state.COMPING 0 1 0 1 0 
+state.OUTPUTING 1 0 0 1 0 
+state.FEEDBACK 0 0 0 1 1 
+
+State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_4|oneByte
+Name oneByte.BYTE1 oneByte.BYTE2 oneByte.BYTE3 oneByte.BYTE4 oneByte.BYTE5 oneByte.BYTE6 oneByte.BYTE7 oneByte.BYTE8 oneByte.DONE 
+oneByte.BYTE8 0 0 0 0 0 0 0 0 0 
+oneByte.BYTE7 0 0 0 0 0 0 1 1 0 
+oneByte.BYTE6 0 0 0 0 0 1 0 1 0 
+oneByte.BYTE5 0 0 0 0 1 0 0 1 0 
+oneByte.BYTE4 0 0 0 1 0 0 0 1 0 
+oneByte.BYTE3 0 0 1 0 0 0 0 1 0 
+oneByte.BYTE2 0 1 0 0 0 0 0 1 0 
+oneByte.BYTE1 1 0 0 0 0 0 0 1 0 
+oneByte.DONE 0 0 0 0 0 0 0 1 1 
+
+State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_4|state
+Name state.TRUE state.JUDGE state.CRCCALC state.IDLE state.FALSE 
+state.IDLE 0 0 0 0 0 
+state.CRCCALC 0 0 1 1 0 
+state.JUDGE 0 1 0 1 0 
+state.TRUE 1 0 0 1 0 
+state.FALSE 0 0 0 1 1 
+
+State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_3|oneByte
+Name oneByte.BYTE1 oneByte.BYTE2 oneByte.BYTE3 oneByte.BYTE4 oneByte.BYTE5 oneByte.BYTE6 oneByte.BYTE7 oneByte.BYTE8 oneByte.DONE 
+oneByte.BYTE8 0 0 0 0 0 0 0 0 0 
+oneByte.BYTE7 0 0 0 0 0 0 1 1 0 
+oneByte.BYTE6 0 0 0 0 0 1 0 1 0 
+oneByte.BYTE5 0 0 0 0 1 0 0 1 0 
+oneByte.BYTE4 0 0 0 1 0 0 0 1 0 
+oneByte.BYTE3 0 0 1 0 0 0 0 1 0 
+oneByte.BYTE2 0 1 0 0 0 0 0 1 0 
+oneByte.BYTE1 1 0 0 0 0 0 0 1 0 
+oneByte.DONE 0 0 0 0 0 0 0 1 1 
+
+State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_3|state
+Name state.TRUE state.JUDGE state.CRCCALC state.IDLE state.FALSE 
+state.IDLE 0 0 0 0 0 
+state.CRCCALC 0 0 1 1 0 
+state.JUDGE 0 1 0 1 0 
+state.TRUE 1 0 0 1 0 
+state.FALSE 0 0 0 1 1 
+
+State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_2|oneByte
+Name oneByte.BYTE1 oneByte.BYTE2 oneByte.BYTE3 oneByte.BYTE4 oneByte.BYTE5 oneByte.BYTE6 oneByte.BYTE7 oneByte.BYTE8 oneByte.DONE 
+oneByte.BYTE8 0 0 0 0 0 0 0 0 0 
+oneByte.BYTE7 0 0 0 0 0 0 1 1 0 
+oneByte.BYTE6 0 0 0 0 0 1 0 1 0 
+oneByte.BYTE5 0 0 0 0 1 0 0 1 0 
+oneByte.BYTE4 0 0 0 1 0 0 0 1 0 
+oneByte.BYTE3 0 0 1 0 0 0 0 1 0 
+oneByte.BYTE2 0 1 0 0 0 0 0 1 0 
+oneByte.BYTE1 1 0 0 0 0 0 0 1 0 
+oneByte.DONE 0 0 0 0 0 0 0 1 1 
+
+State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_2|state
+Name state.TRUE state.JUDGE state.CRCCALC state.IDLE state.FALSE 
+state.IDLE 0 0 0 0 0 
+state.CRCCALC 0 0 1 1 0 
+state.JUDGE 0 1 0 1 0 
+state.TRUE 1 0 0 1 0 
+state.FALSE 0 0 0 1 1 
+
+State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_1|oneByte
+Name oneByte.BYTE1 oneByte.BYTE2 oneByte.BYTE3 oneByte.BYTE4 oneByte.BYTE5 oneByte.BYTE6 oneByte.BYTE7 oneByte.BYTE8 oneByte.DONE 
+oneByte.BYTE8 0 0 0 0 0 0 0 0 0 
+oneByte.BYTE7 0 0 0 0 0 0 1 1 0 
+oneByte.BYTE6 0 0 0 0 0 1 0 1 0 
+oneByte.BYTE5 0 0 0 0 1 0 0 1 0 
+oneByte.BYTE4 0 0 0 1 0 0 0 1 0 
+oneByte.BYTE3 0 0 1 0 0 0 0 1 0 
+oneByte.BYTE2 0 1 0 0 0 0 0 1 0 
+oneByte.BYTE1 1 0 0 0 0 0 0 1 0 
+oneByte.DONE 0 0 0 0 0 0 0 1 1 
+
+State Machine - |busComparator|compTop:comparator|CRC16D64:CRC16D64_1|state
+Name state.TRUE state.JUDGE state.CRCCALC state.IDLE state.FALSE 
+state.IDLE 0 0 0 0 0 
+state.CRCCALC 0 0 1 1 0 
+state.JUDGE 0 1 0 1 0 
+state.TRUE 1 0 0 1 0 
+state.FALSE 0 0 0 1 1 
